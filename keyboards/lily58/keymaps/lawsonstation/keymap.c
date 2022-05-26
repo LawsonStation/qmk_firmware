@@ -286,14 +286,15 @@ bool oled_task_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
-#ifdef OLED_ENABLE
+    #ifdef OLED_ENABLE
     set_keylog(keycode, record);
-#endif
+    #endif
     // set_timelog();
-
-     /* KEYBOARD PET STATUS START */
+  }
+  switch(keycode) {
+         /* KEYBOARD PET STATUS START */
         case KC_LCTL:
-        //case KC_RCTL:
+        case KC_RCTL:
             if (record->event.pressed) {
                 isSneaking = true;
             } else {
@@ -308,7 +309,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 isJumping = false;
             }
             break;
-            /* KEYBOARD PET STATUS END */
+            /* KEYBOARD PET STATUS END */ 
   }
   return true;
 }
