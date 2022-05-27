@@ -54,13 +54,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* LOWER
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | GESC |   1  |   2  |   3  | HOME |   5  |                    |   6  |   7  |   8  |   9  |   0  |BackSP|
+ * | GESC |   1  |   2  |   3  | 4    | Home |                    |   6  |   7  |   8  |   9  |   0  |BackSP|
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | TAB  |C(PGUP)|  UP  |C(PGDN)| PGUP |  T  |                    | Home | PGUP | PGDN | End |   P  |  -   |
+ * | TAB  |MS_BT3|MSWH_D|MS_UP |MSWH_U | PGUP |                    | Home | PGUP | PGDN | End  |   P  |  -   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |LCTRL | LEFT | DOWN |RIGHT | PGDN |  F6  |-------.    ,-------|  Left | Down |  Up  |Right |   ;  | "   |
+ * |LCTRL |MS_BT1| MS_L |MS_DN | MS_R| PGDN  |-------.    ,-------|  Left | Down |  Up  |Right|  ;  | "   |
  * |------+------+------+------+------+------|   [   |    |    ]  |------+------+------+------+------+------|
- * |LSHIFT|  Z   |  X   | C    | END  | B    |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |Enter |
+ * |LSHIFT|MS_BT2|  X   | C    | V    | End  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  |Enter |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE |BackSP| DEL  |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -68,10 +68,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_LOWER] = LAYOUT(
-  QK_GESC,  KC_1,        	  KC_2,     KC_3,       	KC_HOME,   	KC_5,                     			KC_6,      KC_7,    KC_8, 		KC_9,		KC_0, 		KC_BSPC,
-  KC_TAB, 	LCTL(KC_PGUP),	KC_UP,  	LCTL(KC_PGDN), 	KC_PGUP,   	KC_T,                        		KC_HOME,  KC_PGUP,  KC_PGDN,    KC_END, 	KC_P,    	KC_MINS,
-  KC_LCTL,  KC_LEFT,     	  KC_DOWN,  KC_RIGHT,     	KC_PGDN,   	KC_F6,                       		KC_LEFT,  KC_DOWN,  KC_UP, 		KC_RGHT, 	KC_SCLN, 	KC_QUOT,
-  KC_LSFT,  KC_Z,        	  KC_X,     KC_C,         	KC_END,     KC_B,   	KC_LBRC, 	KC_RBRC,	KC_N,      KC_M,    KC_COMM, 	KC_DOT,  	KC_SLSH,  	KC_ENT,
+  QK_GESC,  KC_1,  	    KC_2,     KC_3,       KC_4,   	KC_HOME,                     			KC_6,      KC_7,    KC_8, 		KC_9,		KC_0, 		KC_BSPC,
+  KC_TAB, 	KC_BTN3,    KC_WH_D,  KC_MS_U, 	  KC_WH_U,  KC_PGUP,                        		KC_HOME,  KC_PGUP,  KC_PGDN,    KC_END, 	KC_P,    	KC_MINS,
+  KC_LCTL,  KC_BTN1,    KC_MS_L,  KC_MS_D,    KC_MS_R,  KC_PGDN,                       		KC_LEFT,  KC_DOWN,  KC_UP, 		KC_RGHT, 	KC_SCLN, 	KC_QUOT,
+  KC_LSFT,  KC_BTN2,    KC_X,     KC_C,       KC_V,     KC_END,   	KC_LBRC, 	KC_RBRC,	KC_N,      KC_M,    KC_COMM, 	KC_DOT,  	KC_SLSH,  	KC_ENT,
 								_______,      _______,    _______,  _______, 	_______,    _______,   	_______,    _______
 ),
 /* ADJUST
@@ -131,7 +131,7 @@ static void render_wpm(void) {
     wpm_str[1] = '0' + (n /= 10) % 10;
     wpm_str[0] = '0' + n / 10;
 
-    oled_write_P(PSTR("WPM:"), false);
+    oled_write_P(PSTR("WPM: "), false);
     oled_write(wpm_str, false);
     oled_write_ln_P(PSTR(" "), false);
 }
