@@ -122,6 +122,20 @@ const char *read_keylogs(void);
 // void set_timelog(void);
 // const char *read_timelog(void);
 
+static void render_wpm(void) {
+    uint8_t n = get_current_wpm();
+
+    char wpm_str[4];
+    wpm_str[3] = '\0';
+    wpm_str[2] = '0' + n % 10;
+    wpm_str[1] = '0' + (n /= 10) % 10;
+    wpm_str[0] = '0' + n / 10;
+
+    oled_write_P(PSTR("WPM:"), false);
+    oled_write(wpm_str, false);
+    oled_write_ln_P(PSTR(" "), false);
+}
+
 bool oled_task_user(void) {
   if (is_keyboard_master()) {
     // If you want to change the display of OLED, you need to change here
@@ -132,7 +146,8 @@ bool oled_task_user(void) {
     //oled_write_ln(read_host_led_state(), false);
     //oled_write_ln(read_timelog(), false);
   } else {
-    oled_write(read_logo(), false);
+    //oled_write(read_logo(), false);
+    render_wpm();
   }
     return false;
 }
