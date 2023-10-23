@@ -46,6 +46,7 @@ enum planck_keycodes {
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define ADJUST MO(_ADJUST)
+#define FUNCTION MO(_FUNCTION)
 
 // Left-hand home row mods (QWERTY)
 #define GUI_A LGUI_T(KC_A)
