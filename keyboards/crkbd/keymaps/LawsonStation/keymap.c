@@ -189,13 +189,13 @@ bool oled_task_user(void) {
     return false;
 }
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    set_keylog(keycode, record);
-  }
-  return true;
-}
-#endif // OLED_ENABLE
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//   if (record->event.pressed) {
+//     set_keylog(keycode, record);
+//   }
+//   return true;
+// }
+// #endif // OLED_ENABLE
 
 // Macro for Shift + Backspace keys to send (forward) Delete.
 // Source: https://getreuer.info/posts/keyboards/macros3/index.html#shift-backspace-delete
