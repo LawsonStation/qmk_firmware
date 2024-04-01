@@ -69,11 +69,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Number layer.
   [2] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB,  KC_GRV,    KC_7,    KC_8,    KC_9, KC_LBRC,                      KC_RBRC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS,
+       KC_TAB, KC_BSLS,    KC_7,    KC_8,    KC_9, KC_LBRC,                      KC_RBRC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MINS,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
      LCTL_ESC,  KC_EQL,    KC_4,    KC_5,    KC_6, KC_LPRN,                      KC_RPRN, KC_LSFT, KC_LGUI, KC_LALT, KC_LCTL, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, KC_MINS,    KC_1,    KC_2,    KC_3, KC_BSLS,                      KC_PEQL, KC_PPLS, KC_PAST,  KC_DOT, KC_SLSH, XXXXXXX,
+      KC_LSFT, KC_MINS,    KC_1,    KC_2,    KC_3,  KC_GRV,                      KC_PEQL, KC_PPLS, KC_PAST,  KC_DOT, KC_SLSH, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            KC_DOT,    KC_0,  KC_SPC,     KC_ENT, XXXXXXX, KC_BSPC
                                       //`--------------------------'  `--------------------------'
