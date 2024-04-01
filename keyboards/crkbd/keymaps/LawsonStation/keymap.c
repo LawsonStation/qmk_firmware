@@ -195,7 +195,7 @@ bool oled_task_user(void) {
 //   }
 //   return true;
 // }
-// #endif // OLED_ENABLE
+#endif // OLED_ENABLE
 
 // Macro for Shift + Backspace keys to send (forward) Delete.
 // Source: https://getreuer.info/posts/keyboards/macros3/index.html#shift-backspace-delete
