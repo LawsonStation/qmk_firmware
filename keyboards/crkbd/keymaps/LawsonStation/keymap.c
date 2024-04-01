@@ -32,10 +32,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define LALT_L LALT_T(KC_L)
 #define LCTL_SC LCTL_T(KC_SCLN)
 
-#define LCTL_F11 LCTL(KC_F11)
-#define LALT_F4 LALT(KC_F4)
-#define LGUI_F5 LGUI(KC_F5)
-#define LSFT_F6 LSFT(KC_F6)
+#define LCTL_F11 LCTL_T(KC_F11)
+#define LALT_F4 LALT_T(KC_F4)
+#define LGUI_F5 LGUI_T(KC_F5)
+#define LSFT_F6 LSFT_T(KC_F6)
 #define LSFT_DN LSFT_T(KC_DOWN)  // Mod-Tap for Left Shift and Down Arrow.
 #define LGUI_UP LGUI_T(KC_UP)  // Mod-Tap for Left GUI and Up Arrow.
 #define LALT_RT LALT_T(KC_RGHT)  // Mod-Tap for Left Alt and Right Arrow
