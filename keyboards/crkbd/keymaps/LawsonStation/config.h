@@ -28,7 +28,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // #define EE_HANDS
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 150
+#define TAPPING_TERM 200
 #define QUICK_TAP_TERM 0  //prevent quick repeated keys from being read as a hold
 // #define PERMISSIVE_HOLD  //dual-role key sends hold action when another key is pressed within tapping term
 
