@@ -257,7 +257,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return false;
       break;
 
-      jcase KC_BSPC: {
+    // Macro for Shift + Backspace keys to send (forward) Delete.
+    // Source: https://getreuer.info/posts/keyboards/macros3/index.html#shift-backspace-delete
+      case KC_BSPC: {
         static uint16_t registered_key = KC_NO;
         if (record->event.pressed) {  // On key press.
           const uint8_t mods = get_mods();
