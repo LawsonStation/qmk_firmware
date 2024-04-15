@@ -49,16 +49,16 @@ enum planck_keycodes {
 #define FUNCTION MO(_FUNCTION)
 
 // Left-hand home row mods (QWERTY)
-#define GUI_A LGUI_T(KC_A)
+#define GUI_D LGUI_T(KC_D)
 #define ALT_S LALT_T(KC_S)
-#define SFT_D LSFT_T(KC_D)
-#define CTL_F LCTL_T(KC_F)
+#define SFT_F LSFT_T(KC_F)
+#define CTL_V LCTL_T(KC_V)
 
 // Right-hand home row mods (QWERTY)
-#define CTL_J RCTL_T(KC_J)
-#define SFT_K RSFT_T(KC_K)
+#define CTL_M RCTL_T(KC_M)
+#define SFT_J RSFT_T(KC_J)
 #define ALT_L LALT_T(KC_L)
-#define GUI_SCLN RGUI_T(KC_SCLN)
+#define GUI_K RGUI_T(KC_K)
 
 // Other keycodes
 #define LCTL_ESC LCTL_T(KC_ESC)	
@@ -78,8 +78,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,     KC_MINS,
-    LCTL_ESC, KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,    KC_L,    KC_SCLN,  KC_QUOT,
-    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM, KC_DOT,  KC_SLSH,  KC_ENT ,
+    LCTL_ESC, KC_A,     ALT_S,    GUI_D,    SFT_F,    KC_G,     KC_H,     SFT_J,    GUI_K,   ALT_L,   KC_SCLN,  KC_QUOT,
+    KC_LSFT,  KC_Z,     KC_X,     KC_C,     CTL_V,    KC_B,     KC_N,     CTL_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_ENT ,
     KC_LCTL,  FUNCTION, KC_LGUI,  KC_LALT,  LOWER,    KC_SPC,   KC_ENT,   RAISE,    KC_BSPC, KC_DEL,  KC_PGDN,  KC_PGUP
 ),
 
@@ -236,6 +236,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+
+      jcase KC_BSPC: {
+        static uint16_t registered_key = KC_NO;
+        if (record->event.pressed) {  // On key press.
+          const uint8_t mods = get_mods();
+  #ifndef NO_ACTION_ONESHOT
+          uint8_t shift_mods = (mods | get_oneshot_mods()) & MOD_MASK_SHIFT;
+  #else
+          uint8_t shift_mods = mods & MOD_MASK_SHIFT;
+  #endif  // NO_ACTION_ONESHOT
+          if (shift_mods) {  // At least one shift key is held.
+            registered_key = KC_DEL;
+            // If one shift is held, clear it from the mods. But if both
+            // shifts are held, leave as is to send Shift + Del.
+            if (shift_mods != MOD_MASK_SHIFT) {
+  #ifndef NO_ACTION_ONESHOT
+              del_oneshot_mods(MOD_MASK_SHIFT);
+  #endif  // NO_ACTION_ONESHOT
+              unregister_mods(MOD_MASK_SHIFT);
+            }
+          } else {
+            registered_key = KC_BSPC;
+          }
+
+          register_code(registered_key);
+          set_mods(mods);
+        } else {  // On key release.
+          unregister_code(registered_key);
+        }
+    } return false;
+    
 //     case DVORAK:
 //       if (record->event.pressed) {
 //         set_single_persistent_default_layer(_DVORAK);
