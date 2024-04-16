@@ -344,6 +344,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // case SFT_T(KC_SPC):
+        //     return TAPPING_TERM + 1250;
+        case LCTL_ESC:
+            return 125;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 // bool muse_mode = false;
 // uint8_t last_muse_note = 0;
 // uint16_t muse_counter = 0;
