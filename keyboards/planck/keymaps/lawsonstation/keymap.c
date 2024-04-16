@@ -349,7 +349,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         // case SFT_T(KC_SPC):
         //     return TAPPING_TERM + 1250;
         case LCTL_ESC:
-            return 125;
+            return 100;
         default:
             return TAPPING_TERM;
     }
