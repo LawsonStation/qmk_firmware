@@ -61,6 +61,17 @@ enum planck_keycodes {
 #define GUI_K LGUI_T(KC_K)
 
 // TODO: Create Colemak-DHM home row mods
+// Left-hand home row mods (Colemak-DHm)
+#define GUI_S LGUI_T(KC_S)
+#define ALT_R LALT_T(KC_R)
+#define SFT_T LSFT_T(KC_T)
+#define CTL_D LCTL_T(KC_D)
+
+// Right-hand home row mods (Colemak-DHm)
+#define CTL_H LCTL_T(KC_H)
+#define SFT_N LSFT_T(KC_N)
+#define ALT_I LALT_T(KC_I)
+#define GUI_E LGUI_T(KC_E)
 
 // Left-hand home row mods (Number and Function)
 #define CTL_3 LCTL_T(KC_3)
@@ -81,7 +92,7 @@ enum planck_keycodes {
 // Right-hand home row mods 
 
 // Other keycodes
-#define LCTL_ESC LCTL_T(KC_ESC)	
+#define CTL_ESC LCTL_T(KC_ESC)	
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -98,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,    KC_O,    KC_P,     KC_MINS,
-    LCTL_ESC, KC_A,     ALT_S,    GUI_D,    SFT_F,    KC_G,     KC_H,     SFT_J,    GUI_K,   ALT_L,   KC_SCLN,  KC_QUOT,
+    CTL_ESC,  KC_A,     ALT_S,    GUI_D,    SFT_F,    KC_G,     KC_H,     SFT_J,    GUI_K,   ALT_L,   KC_SCLN,  KC_QUOT,
     KC_LSFT,  KC_Z,     KC_X,     KC_C,     CTL_V,    KC_B,     KC_N,     CTL_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_ENT,
     KC_LCTL,  FUNCTION, KC_LGUI,  KC_LALT,  LOWER,    KC_SPC,   KC_ENT,   RAISE,    KC_BSPC, KC_DEL,  KC_PGDN,  KC_PGUP
 ),
@@ -116,8 +127,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_COLEMAK] = LAYOUT_planck_grid(
     KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_MINS,
-    LCTL_ESC, KC_A,     KC_R,     KC_S,     KC_T,     KC_G,     KC_M,     KC_N,     KC_E,     KC_I,     KC_O,     KC_QUOT,
-    KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_D,     KC_V,     KC_K,     KC_H,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_ENT ,
+    CTL_ESC,  KC_A,     ALT_R,    GUI_S,    SFT_T,    KC_G,     KC_M,     SFT_N,    GUI_E,    ALT_I,    KC_O,     KC_QUOT,
+    KC_LSFT,  KC_Z,     KC_X,     KC_C,     CTL_D,    KC_V,     KC_K,     CTL_H,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_ENT ,
     KC_LCTL,  FUNCTION, KC_LGUI,  KC_LALT,  LOWER,    KC_SPC,   KC_ENT,   RAISE,    KC_BSPC,  KC_DEL,   KC_PGDN,  KC_PGUP
 ),
 
@@ -348,7 +359,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         // case SFT_T(KC_SPC):
         //     return TAPPING_TERM + 1250;
-        case LCTL_ESC:
+        case CTL_ESC:
             return 100;
         default:
             return TAPPING_TERM;
