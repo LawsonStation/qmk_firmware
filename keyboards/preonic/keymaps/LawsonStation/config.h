@@ -46,3 +46,9 @@
 
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
+
+// tap terms for home row mods
+#define TAPPING_FORCE_HOLD
+#define TAPPING_TERM 200
+#define QUICK_TAP_TERM 0
+#define TAPPING_TERM_PER_KEY
