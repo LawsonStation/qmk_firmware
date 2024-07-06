@@ -17,51 +17,170 @@
 
 // Keyboard Layers
 #define _QW 0
-#define _FN 1
+#define _RS 1
+#define _LW 2
+#define _FN 3
+
+// Define macros
+// Left-hand home row mods (QWERTY)
+#define GUI_D LGUI_T(KC_D)
+#define ALT_S LALT_T(KC_S)
+#define SFT_F LSFT_T(KC_F)
+#define CTL_V LCTL_T(KC_V)
+
+// Right-hand home row mods (QWERTY)
+#define CTL_M LCTL_T(KC_M)
+#define SFT_J LSFT_T(KC_J)
+#define ALT_L LALT_T(KC_L)
+#define GUI_K LGUI_T(KC_K)
+
+// Left-hand home row mods (Number and Function)
+#define CTL_3 LCTL_T(KC_3)
+#define ALT_4 LALT_T(KC_4)
+#define GUI_5 LGUI_T(KC_5)
+#define SFT_6 LSFT_T(KC_6)
+
+#define CTL_F3 LCTL_T(KC_F3)
+#define ALT_F4 LALT_T(KC_F4)
+#define GUI_F5 LGUI_T(KC_F5)
+#define SFT_F6 LSFT_T(KC_F6)
+
+// Right-hand home row mods 
+
+#define CTL_PU LCTL_T(KC_PGUP)
+#define ALT_RT LALT_T(KC_RGHT)
+#define GUI_UP LGUI_T(KC_UP)
+#define SFT_DN LSFT_T(KC_DOWN)
+
+
+// Other keycodes
+#define CTL_ESC LCTL_T(KC_ESC)	
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * | ESC    | 1      | 2      | 3      | 4      | 5      | -      | `      | =      | 6      | 7      | 8      | 9      | 0      | BACKSP |
+ * | `      | 1      | 2      | 3      | 4      | 5      |        |        |        | 6      | 7      | 8      | 9      | 0      | BACKSP |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
- * | TAB    | Q      | W      | E      | R      | T      | [      | \      | ]      | Y      | U      | I      | O      | P      | '      |
+ * | TAB    | Q      | W      | E      | R      | T      | MS W D | MS U   | MS W U | Y      | U      | I      | O      | P      | -      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | CAP LK | A      | S      | D      | F      | G      | HOME   | DEL    | PG UP  | H      | J      | K      | L      | ;      | ENTER  |
+ * | CTLESC | A      | S/Alt  | D/GUI  | F/SFT  | G      | MS L   | MS D   | MS R   | H      | J/SFT  | K/GUI  | L/ALT  | ;      | '      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
- * | LSHIFT | Z      | X      | C      | V      | B      | END    | UP     | PG DN  | N      | M      | ,      | .      | /      | RSHIFT |
+ * | LSHIFT | Z      | X      | C      | V/CTL  | B      | MS B L | MS B M | MS B R | N      | M/CTL  | ,      | .      | /      | RSHIFT |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * | LCTRL  | LGUI   | LALT   | FN     | SPACE  | SPACE  | LEFT   | DOWN   | RIGHT  | SPACE  | SPACE  | FN     | RALT   | RGUI   | RCTRL  |
+ * | LCTRL  | FN     | LGUI   | LALT   | LOWER  | SPACE  |        |        |        | ENTER  | RAISE  | BACKSP | DELETE | PG DN  | PG UP  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
  [_QW] = LAYOUT_ortho_5x15( /* QWERTY */
-    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_MINS, KC_GRV,  KC_EQL,  KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC, KC_BSLS, KC_RBRC, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
-    KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_HOME, KC_DEL,  KC_PGUP, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_END,  KC_UP,   KC_PGDN, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-    KC_LCTL, KC_LGUI, KC_LALT, MO(_FN), KC_SPC,  KC_SPC,  KC_LEFT, KC_DOWN, KC_RGHT, KC_SPC,  KC_SPC,  MO(_FN), KC_RALT, KC_RGUI, KC_RCTL
+    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_WH_D, KC_MS_U, KC_WH_U, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
+    CTL_ESC, KC_A,    ALT_S,   GUI_D,   SFT_F,   KC_G,    KC_MS_L, KC_MS_D, KC_MS_R, KC_H,    SFT_J,   GUI_K,   ALT_L,   KC_SCLN, KC_QUOT,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    CTL_V,   KC_B,    KC_BTN1, KC_BTN3, KC_BTN2, KC_N,    CTL_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
+    KC_LCTL, MO(_FN), KC_LGUI, KC_LALT, MO(_LW), KC_SPC,  _______, _______, _______, KC_ENT,  MO(_RS), KC_BSPC, KC_DEL,  PC_PGDN, KC_PGUP
  ),
 
-/* FUNCTION
+/* RAISE
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * | F1     | F2     | F3     | F4     | F5     | F6     | NUM LK | P/     | P*     | F7     | F8     | F9     | F10    | F11    | F12    |
+ * | `      | 1      | 2      | 3      | 4      | 5      |        |       |        | 6      | 7      | 8      | 9      | 0       | BACKSP |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | SELECT | CALC   | MYCOMP | MAIL   | RGB HD | RGB HI | P7     | P8     | P9     | -      |        |        | PR SCR | SCR LK | PAUSE  |
+ * |        | \      | 7      | 8      | 9      | [      |        |        |        | ]      | +      | -      | *      | /      | -      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | PREV   | PLAY   | NEXT   | STOP   | RGB SD | RGB SI | P4     | P5     | P6     | +      |        | QK_BOOT  |        |        |        |
+ * |        | =      | 4/Alt  | 5/GUI  | 6/SFT  | (      |        |        |        | )      | Shift  | GUI    | Alt    | $      | %      |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | VOL-   | MUTE   | VOL+   | APP    | RGB VD | RGB VI | P1     | P2     | P3     | PENT   |        |        |        |        |        |
+ * |        | -      | 1      | 2      | 3/CTL  | `      |        |        |        | =      | Ctrl   | ,      | .      | /      |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * |        |        | RGB TG | FN     | RGB RMD| RGB MD | P0     |        | P.     | PENT   | PENT   | FN     |        |        |        |
+ * |        |        |        | .      | 0      |        |        |        |        |        |        |        |        |        |        |
+ * '--------------------------------------------------------------------------------------------------------------------------------------'
+ */
+ 
+ [_RS] = LAYOUT_ortho_5x15( /* RAISE */
+    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+    _______, KC_BSLS, KC_7,    KC_8,    KC_9,    KC_LBRC, _______, _______, _______, RC_RBRC, KC_PPLS, KC_PMNS, KC_PAST, KC_PSLS, KC_MINS,
+    _______, KC_EQL,  ALT_4,   GUI_5,   SFT_6,   KC_LPRN, _______, _______, _______, KC_RPRN, KC_LSFT, KC_LGUI, KC_LALT, KC_DLR,  KC_PERC,
+    _______, KC_MINS, KC_1,    KC_2,    CTL_3,   KC_GRV,  _______, _______, _______, KC_EQL,  KC_LCTL, KC_COMM, KC_DOT,  KC_SLSH, _______,
+    _______, _______, _______, KC_DOT,  KC_0,    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+ ),
+
+ /* LOWER
+ * .--------------------------------------------------------------------------------------------------------------------------------------.
+ * | `      | 1      | 2      | 3      | 4      | 5      |        |        |        | 6      | 7      | 8      | 9      | 0      | BACKSP |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+ * |        | F12    | F7     | F8     | F9     |        |        |        |        | PREV   | VOL-   | VOL+   | NEXT   | MUTE   | PLAY   |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+ * |        | F11    | F4     | F5     | F6     |        |        |        |        | LEFT   | DOWN   | UP     | RIGHT  |        |        |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+ * |        | F10    | F1     | F2     | F3     |        |        |        |        | HOME   | PG UP  | PG DN  | END    |        |        |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+ * |        |        |       |         |        |        |        |        |        |        |        |        |        |        |        |
+ * '--------------------------------------------------------------------------------------------------------------------------------------'
+ */
+ 
+ [_LW] = LAYOUT_ortho_5x15( /* LOWER */
+    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+    _______, KC_F12,  KC_F7,   KC_F8,   KC_F9,   _______, _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MUTE, KC_MPLY,
+    _______, KC_F11,  ALT_F4,  GUI_F5,  SFT_F6,  _______, _______, _______, _______, KC_LEFT, SFT_DN,  GUI_UP,  ALT_RT,  _______, _______,
+    _______, KC_F10,  KC_F1,   KC_F2,   CTL_F3,  _______, _______, _______, _______, KC_HOME, CTL_PU,  KC_PGDN, KC_END,  _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+ ),
+
+ /* FUNCTION
+ * .--------------------------------------------------------------------------------------------------------------------------------------.
+ * |        |        |        |        |        |        |        |        |        |        |        |        |        |        | QK_BOOT|
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+ * |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+ * | CAPS   | HUE+   | SAT+   | BRGTH+ |        |        |        |        |        |        |        |        |        |        | PLAY   |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+ * | LSHIFT | RGBTOG | RGBPLN | RGBBRT |        |        |        |        |        |        |        |        |        |        | MUTE   |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
+ * |        |        |        |        |        |        |        |        |        |        |        | PREV   | VOL-   | VOL+   | NEXT   |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
  
  [_FN] = LAYOUT_ortho_5x15( /* FUNCTION */
-    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_NUM,  KC_SLSH, KC_ASTR, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-    KC_MSEL, KC_CALC, KC_MYCM, KC_MAIL, RGB_HUD, RGB_HUI, KC_P7,   KC_P8,   KC_P9,   KC_MINS, _______, _______, KC_PSCR, KC_SCRL, KC_PAUS,
-    KC_MPRV, KC_MPLY, KC_MNXT, KC_MSTP, RGB_SAD, RGB_SAI, KC_P4,   KC_P5,   KC_P6,   KC_PLUS, _______, QK_BOOT,   _______, _______, _______,
-    KC_VOLD, KC_MUTE, KC_VOLU, KC_APP,  RGB_VAD, RGB_VAI, KC_P1,   KC_P2,   KC_P3,   KC_PENT, _______, _______, _______, _______, _______,
-    _______, _______, RGB_TOG, MO(_FN), RGB_RMOD,RGB_MOD, KC_P0,   _______, KC_PDOT, KC_PENT, KC_PENT, MO(_FN), _______, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, QK_BOOT,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    KC_CAPS, RGB_HUI, RGB_SAI, RGB_VAI, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MPLY,
+    KC_LSFT, RGB_TOG, RGB_M_P, TGP_MPB, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MUTE,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MRWD, KC_VOLD, KC_VOLU, KC_MNXT
  ),
+
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+      // Macro for Shift + Backspace keys to send (forward) Delete.
+      // Source: https://getreuer.info/posts/keyboards/macros3/index.html#shift-backspace-delete
+      case KC_BSPC: {
+        static uint16_t registered_key = KC_NO;
+        if (record->event.pressed) {  // On key press.
+          const uint8_t mods = get_mods();
+        #ifndef NO_ACTION_ONESHOT
+          uint8_t shift_mods = (mods | get_oneshot_mods()) & MOD_MASK_SHIFT;
+        #else
+          uint8_t shift_mods = mods & MOD_MASK_SHIFT;
+        #endif  // NO_ACTION_ONESHOT
+          if (shift_mods) {  // At least one shift key is held.
+            registered_key = KC_DEL;
+            // If one shift is held, clear it from the mods. But if both
+            // shifts are held, leave as is to send Shift + Del.
+            if (shift_mods != MOD_MASK_SHIFT) {
+        #ifndef NO_ACTION_ONESHOT
+              del_oneshot_mods(MOD_MASK_SHIFT);
+        #endif  // NO_ACTION_ONESHOT
+              unregister_mods(MOD_MASK_SHIFT);
+            }
+          } else {
+            registered_key = KC_BSPC;
+          }
+
+          register_code(registered_key);
+          set_mods(mods);
+        } else {  // On key release.
+          unregister_code(registered_key);
+        }
+    } return false;
+      }
+    return true;
 };
