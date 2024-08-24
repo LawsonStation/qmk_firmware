@@ -30,7 +30,7 @@ enum preonic_layers {
 
 enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
-  QUWERTY2,
+  QWERTY2,
   COLEMAK,
   // DVORAK,
   LOWER,
