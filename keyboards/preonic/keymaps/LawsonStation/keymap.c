@@ -19,6 +19,7 @@
 
 enum preonic_layers {
   _QWERTY,
+  _QWERTY2,
   _COLEMAK,
   // _DVORAK,
   _LOWER,
@@ -29,6 +30,7 @@ enum preonic_layers {
 
 enum preonic_keycodes {
   QWERTY = SAFE_RANGE,
+  QUWERTY2,
   COLEMAK,
   // DVORAK,
   LOWER,
@@ -111,6 +113,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_MINS,
   CTL_ESC,  KC_A,     ALT_S,    GUI_D,    SFT_F,    KC_G,     KC_H,     SFT_J,    GUI_K,    ALT_L,    KC_SCLN,  KC_QUOT,
   KC_LSFT,  KC_Z,     KC_X,     KC_C,     CTL_V,    KC_B,     KC_N,     CTL_M,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_ENT,
+  KC_LCTL,  FUNCTION, KC_LGUI,  KC_LALT,  LOWER,    KC_SPC,   KC_ENT,   RAISE,    KC_BSPC,  KC_DEL,   KC_PGDN,  KC_PGUP
+),
+
+[_QWERTY2] = LAYOUT_preonic_grid(
+  KC_GRV,   KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
+  KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_MINS,
+  CTL_ESC,  KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+  KC_LSFT,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,     KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_ENT,
   KC_LCTL,  FUNCTION, KC_LGUI,  KC_LALT,  LOWER,    KC_SPC,   KC_ENT,   RAISE,    KC_BSPC,  KC_DEL,   KC_PGDN,  KC_PGUP
 ),
 
@@ -233,7 +243,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_FUNCTION] = LAYOUT_preonic_grid(
-  QK_BOOT,  QWERTY,   COLEMAK,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+  QK_BOOT,  QWERTY,   COLEMAK,  QWERTY2,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
   KC_CAPS,  RGB_HUI,  RGB_SAI,  RGB_VAI,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_MPLY,
   KC_LSFT,  RGB_TOG,  RGB_M_P,  RGB_M_B,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_MUTE,
@@ -248,6 +258,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case QWERTY:
           if (record->event.pressed) {
             set_single_persistent_default_layer(_QWERTY);
+          }
+          return false;
+          break;
+        case QWERTY2:
+          if (record->event.pressed) {
+            set_single_persistent_default_layer(_QWERTY2);
           }
           return false;
           break;
