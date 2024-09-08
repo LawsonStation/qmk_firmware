@@ -62,6 +62,15 @@ enum layer_number {
   _ADJUST,
 };
 
+enum lily58_keycodes {
+  QWERTY = SAFE_RANGE,
+  QWERTY2,
+  COLEMAK,
+  LOWER,
+  RAISE,
+  FUNCTION
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY
