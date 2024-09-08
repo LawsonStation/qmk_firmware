@@ -33,15 +33,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define SPLIT+OLED_ENABLE
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 100
+#define TAPPING_TERM 200
+#define QUICK_TAP_TERM 0  //prevent quick repeated keys from being read as a hold
+// #define PERMISSIVE_HOLD  //dual-role key sends hold action when another key is pressed within tapping term
+#define TAPPING_TERM_PER_KEY
 
-#undef RGBLED_NUM
-#define RGBLIGHT_ANIMATIONS
-#define RGBLED_NUM 27
-#define RGBLIGHT_LIMIT_VAL 120
-#define RGBLIGHT_HUE_STEP 10
-#define RGBLIGHT_SAT_STEP 17
-#define RGBLIGHT_VAL_STEP 17
+// #undef RGBLED_NUM
+// #define RGBLIGHT_ANIMATIONS
+// #define RGBLED_NUM 27
+// #define RGBLIGHT_LIMIT_VAL 120
+// #define RGBLIGHT_HUE_STEP 10
+// #define RGBLIGHT_SAT_STEP 17
+// #define RGBLIGHT_VAL_STEP 17
 
 // Underglow
 /*
