@@ -116,7 +116,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |  \   |  7   |  8   |  9   |  [   |                    |  ]   |  +   |  -   |  *   |  /   |   -  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |  =   |  4   |  5   |  6   |  (   |-------.    ,-------|  )   |Shift | GUI  | Alt  |  $   |  %   |
- * |------+------+------+------+------+------|   {   |    |    }  |------+------+------+------+------+------|
+ * |------+------+------+------+------+------|   (   |    |    )  |------+------+------+------+------+------|
  * |      |  -   |  1   |  2   |  3   |  `   |-------|    |-------|  =   | Ctrl |  ,   |  .   |  /   |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LGUI | .    | 0     | /Space  /       \Enter \  |RAISE |BackSP| Del |
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_GRV,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_BSPC,
   _______,  KC_BSLS,  KC_7,     KC_8,     KC_9,     KC_LBRC,                  KC_RBRC,  KC_PPLS,  KC_PMNS,  KC_PAST,  KC_PSLS,  KC_MINS,
   _______,  CTL_EQL,  ALT_4,    GUI_5,    SFT_6,    KC_LPRN,                  KC_RPRN,  KC_LSFT,  KC_LGUI,  KC_LALT,  CTL_DLR,  KC_PERC,
-  _______,  KC_MINS,  KC_1,     KC_2,     CTL_3,    KC_GRV, KC_LBRC, KC_RBRC, KC_EQL,   KC_LCTL,  KC_COMM,  KC_DOT,   KC_SLSH,  _______,
+  _______,  KC_MINS,  KC_1,     KC_2,     CTL_3,    KC_GRV, KC_LPRN, KC_RPRN, KC_EQL,   KC_LCTL,  KC_COMM,  KC_DOT,   KC_SLSH,  _______,
                         _______, KC_DOT, KC_0,   _______, _______, _______, _______, _______
 ),
 /* LOWER (navigation and function)
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      | F12  | F7   | F8   | F9   |      |                    | PREV | VOL- | VOL+ | NEXT | MUTE | PLAY |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      | F11  | F4   | F5   | F6   |      |-------.    ,-------|  Left | Down |  Up  |Right|      |      |
- * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
+ * |------+------+------+------+------+------|   {   |    |   }   |------+------+------+------+------+------|
  * |      | F10  |  F1  | F2   | F3   |      |-------|    |-------| Home | PGUP | PGDN | End  |     |       |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LGUI | LAlt |LOWER | /Space  /       \Enter \  |RAISE |BackSP| DEL  |
