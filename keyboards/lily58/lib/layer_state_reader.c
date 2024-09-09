@@ -36,11 +36,11 @@ const char *read_layer_state(void) {
 char default_layer_str[24];
 
 const char *get_default_layer_name(void) {
-    if (default_layer_state == (1UL << _QWERTY)) {
+    if (default_layer_state == 0) {
         snprintf(default_layer_str, sizeof(default_layer_str), "Layer: QWERTY");
-    } else if (default_layer_state == (1UL << _QWERTY2)) {
+    } else if (default_layer_state == 1) {
         snprintf(default_layer_str, sizeof(default_layer_str), "Layer: QWERTY2");
-    } else if (default_layer_state == (1UL << _COLEMAK)) {
+    } else if (default_layer_state == 2) {
         snprintf(default_layer_str, sizeof(default_layer_str), "Layer: COLEMAK");
     } else {
         snprintf(default_layer_str, sizeof(default_layer_str), "Layer: Unknown");
