@@ -73,6 +73,7 @@ enum planck_keycodes {
 #define ALT_I LALT_T(KC_I)
 #define GUI_E LGUI_T(KC_E)
 
+
 // Left-hand home row mods (Number and Function)
 #define CTL_3 LCTL_T(KC_3)
 #define ALT_4 LALT_T(KC_4)

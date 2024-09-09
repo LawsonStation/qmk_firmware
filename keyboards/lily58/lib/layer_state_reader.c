@@ -36,11 +36,11 @@ const char *read_layer_state(void) {
 char default_layer_str[24];
 
 const char *read_default_layer_state(void) {
-    if (default_layer_state == 0) {
+    if (default_layer_state == 1) {
         snprintf(default_layer_str, sizeof(default_layer_str), "Keymap: QWERTY");
-    } else if (default_layer_state == 1) {
-        snprintf(default_layer_str, sizeof(default_layer_str), "Keymap: QWERTY2");
     } else if (default_layer_state == 2) {
+        snprintf(default_layer_str, sizeof(default_layer_str), "Keymap: QWERTY2");
+    } else if (default_layer_state == 4) {
         snprintf(default_layer_str, sizeof(default_layer_str), "Keymap: COLEMAK");
     } else {
         snprintf(default_layer_str, sizeof(default_layer_str), "Keymap: UNKNOWN");
