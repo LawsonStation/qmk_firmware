@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 #define L_BASE 0
-#define L_QWERTY2 (1 << 1)
 #define L_RAISE (1 << 3)
 #define L_LOWER (1 << 4)
 #define L_ADJUST (1 << 5)
@@ -15,9 +14,6 @@ const char *read_layer_state(void) {
   {
   case L_BASE:
     snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Default");
-    break;
-  case L_QWERTY2:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Qwerty2");
     break;
   case L_RAISE:
     snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Raise");
