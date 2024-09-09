@@ -234,9 +234,9 @@ bool oled_task_user(void) {
     //oled_write_ln(read_timelog(), false);
   } else {
     //oled_write(read_logo(), false);
-    render_wpm();
     oled_write_ln(read_keylog(), false);
     oled_write_ln(read_keylogs(), false);
+    render_wpm();
   }
     return false;
 }
