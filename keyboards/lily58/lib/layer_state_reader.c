@@ -17,7 +17,7 @@ const char *read_layer_state(void) {
     } else if (layer_state_cmp(layer_state, _ADJUST)) {
         snprintf(layer_state_str, sizeof(layer_state_str), "Layer: ADJUST");
     } else {
-        snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%lu", layer_state);
+        snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%u", layer_state);
     }
 
     return layer_state_str;
