@@ -31,3 +31,20 @@ const char *read_layer_state(void) {
 
   return layer_state_str;
 }
+
+// Default Layers
+char default_layer_str[24];
+
+const char *get_default_layer_name(void) {
+    if (default_layer_state == (1UL << _QWERTY)) {
+        snprintf(default_layer_str, sizeof(default_layer_str), "Layer: QWERTY");
+    } else if (default_layer_state == (1UL << _QWERTY2)) {
+        snprintf(default_layer_str, sizeof(default_layer_str), "Layer: QWERTY2");
+    } else if (default_layer_state == (1UL << _COLEMAK)) {
+        snprintf(default_layer_str, sizeof(default_layer_str), "Layer: COLEMAK");
+    } else {
+        snprintf(default_layer_str, sizeof(default_layer_str), "Layer: Unknown");
+    }
+
+    return default_layer_str;
+}
