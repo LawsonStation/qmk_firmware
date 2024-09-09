@@ -3,6 +3,15 @@
 
 char layer_state_str[24];
 
+enum layer_names {
+    _QWERTY,
+    _QWERTY2,
+    _COLEMAK,
+    _LOWER,
+    _RAISE,
+    _ADJUST
+};
+
 const char *read_layer_state(void) {
     if (layer_state_cmp(layer_state, _QWERTY)) {
         snprintf(layer_state_str, sizeof(layer_state_str), "Layer: QWERTY");

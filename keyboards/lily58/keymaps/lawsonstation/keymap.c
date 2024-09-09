@@ -62,6 +62,15 @@ enum layer_number {
   _ADJUST,
 };
 
+enum layer_names {
+  _QWERTY,
+  _QWERTY2,
+  _COLEMAK,
+  _RAISE,
+  _LOWER,
+  _ADJUST,
+};
+
 enum lily58_keycodes {
   QWERTY = SAFE_RANGE,
   QWERTY2,
