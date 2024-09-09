@@ -53,14 +53,15 @@ enum planck_keycodes {
 #define ALT_S LALT_T(KC_S)
 #define SFT_F LSFT_T(KC_F)
 #define CTL_V LCTL_T(KC_V)
+#define CTL_A LCTL_T(KC_A)
 
 // Right-hand home row mods (QWERTY)
 #define CTL_M LCTL_T(KC_M)
+#define CTL_SC LCTL_T(KC_SCLN)
 #define SFT_J LSFT_T(KC_J)
 #define ALT_L LALT_T(KC_L)
 #define GUI_K LGUI_T(KC_K)
 
-// TODO: Create Colemak-DHM home row mods
 // Left-hand home row mods (Colemak-DHm)
 #define GUI_S LGUI_T(KC_S)
 #define ALT_R LALT_T(KC_R)
@@ -69,6 +70,7 @@ enum planck_keycodes {
 
 // Right-hand home row mods (Colemak-DHm)
 #define CTL_H LCTL_T(KC_H)
+#define CTL_O LCTL_T(KC_O)
 #define SFT_N LSFT_T(KC_N)
 #define ALT_I LALT_T(KC_I)
 #define GUI_E LGUI_T(KC_E)
@@ -76,11 +78,14 @@ enum planck_keycodes {
 
 // Left-hand home row mods (Number and Function)
 #define CTL_3 LCTL_T(KC_3)
+#define CTL_EQL LCTL_T(KC_EQL)
 #define ALT_4 LALT_T(KC_4)
 #define GUI_5 LGUI_T(KC_5)
 #define SFT_6 LSFT_T(KC_6)
+#define CTL_DLR LCTL_T(KC_DLR)
 
 #define CTL_F3 LCTL_T(KC_F3)
+#define CTL_F11 LCTL_T(KC_F11)
 #define ALT_F4 LALT_T(KC_F4)
 #define GUI_F5 LGUI_T(KC_F5)
 #define SFT_F6 LSFT_T(KC_F6)
@@ -110,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = LAYOUT_planck_grid(
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_Y,     KC_U,     KC_I,      KC_P,     KC_MINS,
-    CTL_ESC,  KC_A,     ALT_S,    GUI_D,    SFT_F,    KC_G,     KC_H,     SFT_J,    GUI_K,     KC_SCLN,  KC_QUOT,
+    CTL_ESC,  CTL_A,    ALT_S,    GUI_D,    SFT_F,    KC_G,     KC_H,     SFT_J,    GUI_K,     CTL_SC,   KC_QUOT,
     KC_LSFT,  KC_Z,     KC_X,     KC_C,     CTL_V,    KC_B,     KC_N,     CTL_M,    KC_COMM,   KC_SLSH,  KC_ENT,
     KC_LCTL,  FUNCTION, KC_LGUI,  KC_LALT,  LOWER,    KC_SPC,   KC_ENT,   RAISE,    KC_BSPC,   KC_PGDN,  KC_PGUP
 ),
@@ -128,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_COLEMAK] = LAYOUT_planck_grid(
     KC_TAB,   KC_Q,     KC_W,     KC_F,     KC_P,     KC_B,     KC_J,     KC_L,     KC_U,     KC_Y,     KC_SCLN,  KC_MINS,
-    CTL_ESC,  KC_A,     ALT_R,    GUI_S,    ZSFT_T,   KC_G,     KC_M,     SFT_N,    GUI_E,    ALT_I,    KC_O,     KC_QUOT,
+    CTL_ESC,  CTL_A,    ALT_R,    GUI_S,    ZSFT_T,   KC_G,     KC_M,     SFT_N,    GUI_E,    ALT_I,    CTL_O,    KC_QUOT,
     KC_LSFT,  KC_Z,     KC_X,     KC_C,     CTL_D,    KC_V,     KC_K,     CTL_H,    KC_COMM,  KC_DOT,   KC_SLSH,  KC_ENT ,
     KC_LCTL,  FUNCTION, KC_LGUI,  KC_LALT,  LOWER,    KC_SPC,   KC_ENT,   RAISE,    KC_BSPC,  KC_DEL,   KC_PGDN,  KC_PGUP
 ),
@@ -164,7 +169,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = LAYOUT_planck_grid(
     _______,  KC_F12,   KC_F7,    KC_F8,    KC_F9,    XXXXXXX,  KC_MPRV,  KC_VOLD,  KC_VOLU,  KC_MNXT,  KC_MUTE,  KC_MPLY,
-    _______,  KC_F11,   ALT_F4,  GUI_F5,   SFT_F6,    XXXXXXX,  KC_LEFT,  SFT_DN,   GUI_UP,   ALT_RT,   XXXXXXX,  XXXXXXX,
+    _______,  CTL_F11,  ALT_F4,  GUI_F5,   SFT_F6,    XXXXXXX,  KC_LEFT,  SFT_DN,   GUI_UP,   ALT_RT,   KC_LCTL,  XXXXXXX,
     _______,  KC_F10,   KC_F1,    KC_F2,   CTL_F3,    XXXXXXX,  KC_HOME,  CTL_PU,   KC_PGDN,  KC_END,   XXXXXXX,  XXXXXXX,
     _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
 ),
@@ -182,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT_planck_grid(
     _______,  KC_BSLS,  KC_7,     KC_8,     KC_9,     KC_LBRC,  KC_RBRC,  KC_PPLS,  KC_PMNS,  KC_PAST,  KC_PSLS,  KC_MINS,
-    _______,  KC_EQL,   ALT_4,    GUI_5,    SFT_6,    KC_LPRN,  KC_RPRN,  KC_LSFT,  KC_LGUI,  KC_LALT,  KC_DLR,   KC_PERC,
+    _______,  CTL_EQL,  ALT_4,    GUI_5,    SFT_6,    KC_LPRN,  KC_RPRN,  KC_LSFT,  KC_LGUI,  KC_LALT,  CTL_DLR,  KC_PERC,
     _______,  KC_MINS,  KC_1,     KC_2,     CTL_3,    KC_GRV,   KC_EQL,   KC_LCTL,  KC_COMM,  KC_DOT,   KC_SLSH,  _______,
     _______,  _______,  _______,  KC_DOT,   KC_0,     _______,  _______,  _______,  _______,  _______,  _______,  _______
 ),
@@ -205,21 +210,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     EXT_PLV, XXXXXXX, XXXXXXX, KC_C,    KC_V,    XXXXXXX, XXXXXXX, KC_N,    KC_M,    XXXXXXX, XXXXXXX, XXXXXXX
 // ),
 
-/* Adjust (Lower + Raise) (Function Keys)
+/* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
- * |      | F12  |  F7  |  F8  |  F9  |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | F11  |  F4  |  F5  |  F6  |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | F10  |  F1  |  F2  |  F3  |      |      |      |      |      |      |      |
+ * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_planck_grid(
-    XXXXXXX,  KC_F12,   KC_F7,    KC_F8,    KC_F9,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,  KC_F11,   KC_F4,    KC_F5,    KC_F6,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
-    XXXXXXX,  KC_F10,   KC_F1,    KC_F2,    KC_F3,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
     XXXXXXX,  _______,  XXXXXXX,  XXXXXXX,  _______,  XXXXXXX,  XXXXXXX,  _______,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX
 ),
 
